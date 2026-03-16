@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import api from '../api';
 import type { Show } from '../contexts/ShowsContext';
 import { useShows } from '../contexts/ShowsContext';
 import Layout from '../components/Layout';
@@ -24,8 +25,8 @@ export default function AdminPage() {
     setError(''); setSuccess('');
     setSubmitting(true);
     try {
-      await axios.post('/api/v1/admin/shows', form, { headers: authHeader() });
-      const res = await axios.get<Show[]>('/api/v1/admin/shows', { headers: authHeader() });
+      await api.post('/api/v1/admin/shows', form, { headers: authHeader() });
+      const res = await api.get<Show[]>('/api/v1/admin/shows', { headers: authHeader() });
       setShows(res.data);
       setForm(INITIAL);
       setSuccess(`"${form.name}" created with ${form.totalSeats} seats.`);

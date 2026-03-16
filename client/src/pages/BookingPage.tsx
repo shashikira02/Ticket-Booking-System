@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api from '../api';
 import Layout from '../components/Layout';
 import { useShows } from '../contexts/ShowsContext';
 import confetti from 'canvas-confetti';
@@ -39,7 +40,7 @@ export default function BookingPage() {
   useEffect(() => {
     if (!showId) return;
     setLoading(true);
-    axios.get<SeatsData>(`/api/v1/shows/${showId}/seats`)
+    api.get<SeatsData>(`/api/v1/shows/${showId}/seats`)
       .then((res) => setSeatsData(res.data))
       .catch(() => setError('Failed to load seats.'))
       .finally(() => setLoading(false));
@@ -55,7 +56,7 @@ export default function BookingPage() {
     if (selected.length === 0) return setError('Select at least one seat.');
     setError(''); setResult(null); setBooking(true);
     try {
-      const res = await axios.post<BookingResult>(
+      const res = await api.post<BookingResult>(
         '/api/v1/bookings',
         { showId: Number(showId), seatNumbers: selected },
         { headers: authHeader() }
@@ -71,7 +72,7 @@ export default function BookingPage() {
         });
       }
 
-      const updated = await axios.get<SeatsData>(`/api/v1/shows/${showId}/seats`);
+      const updated = await api.get<SeatsData>(`/api/v1/shows/${showId}/seats`);
       setSeatsData(updated.data);
       setSelected([]);
     } catch (err) {

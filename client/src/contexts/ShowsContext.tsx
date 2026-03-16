@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
-import axios from 'axios';
+import api from '../api';
 
 export interface Show {
   id: number;
@@ -25,7 +25,7 @@ export const ShowsProvider = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    axios
+    api
       .get<Show[]>('/api/v1/shows')
       .then((res) => setShows(res.data))
       .catch(() => setError('Failed to load shows.'))

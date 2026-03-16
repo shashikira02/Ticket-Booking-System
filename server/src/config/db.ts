@@ -9,7 +9,7 @@ if (!connectionString && isProduction) {
 
 const pool = new Pool(
   connectionString
-    ? { connectionString, ssl: isProduction ? { rejectUnauthorized: true } : false }
+    ? { connectionString, ssl: { rejectUnauthorized: false } }
     : {
         host:     process.env.DB_HOST     || 'localhost',
         port:     Number(process.env.DB_PORT) || 5432,

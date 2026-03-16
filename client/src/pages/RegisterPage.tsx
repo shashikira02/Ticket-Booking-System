@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api from '../api';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function RegisterPage() {
@@ -15,7 +16,7 @@ export default function RegisterPage() {
     setError('');
     setLoading(true);
     try {
-      const res = await axios.post<{ token: string }>('/api/v1/auth/register', form);
+      const res = await api.post<{ token: string }>('/api/v1/auth/register', form);
       login(res.data.token);
       navigate(form.role === 'admin' ? '/admin' : '/');
     } catch (err) {
