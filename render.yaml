@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: modex-backend
+    runtime: node
+    rootDir: server
+    buildCommand: npm ci && npm run build
+    startCommand: node dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false          # set manually in Render dashboard
+      - key: JWT_SECRET
+        generateValue: true  # Render auto-generates a secure random value
+      - key: ALLOWED_ORIGIN
+        sync: false          # set to your frontend URL after deploying frontend
+    healthCheckPath: /api/v1/shows
