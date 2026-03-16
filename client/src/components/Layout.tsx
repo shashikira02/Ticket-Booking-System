@@ -23,12 +23,9 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-
-      {/* ── Navbar ── */}
       <header className="glass sticky top-0 z-30 border-b-4 border-indigo-100 shadow-xl">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-4">
 
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group shrink-0">
             <div className="w-11 h-11 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 rounded-2xl flex items-center justify-center text-xl shadow-lg shadow-indigo-400/40 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
               🎟
@@ -39,13 +36,11 @@ export default function Layout({ children }: { children: ReactNode }) {
             </div>
           </Link>
 
-          {/* Nav links */}
           <nav className="hidden sm:flex items-center gap-2">
             {navLink('/', 'Shows')}
             {user?.role === 'admin' && navLink('/admin', 'Admin')}
           </nav>
 
-          {/* Auth */}
           <div className="flex items-center gap-3 shrink-0">
             {user ? (
               <>
@@ -76,21 +71,18 @@ export default function Layout({ children }: { children: ReactNode }) {
           </div>
         </div>
 
-        {/* Mobile nav */}
         <div className="sm:hidden flex items-center justify-center gap-3 pb-3 px-4">
           {navLink('/', 'Shows')}
           {user?.role === 'admin' && navLink('/admin', 'Admin')}
         </div>
       </header>
 
-      {/* ── Main Content ── */}
       <main className="flex-1 flex justify-center items-start p-6 sm:p-10">
         <div className="w-full max-w-5xl glass-card rounded-2xl border-2 border-slate-200 shadow-2xl shadow-indigo-900/20 px-6 sm:px-10 py-8 sm:py-10">
           {children}
         </div>
       </main>
 
-      {/* ── Footer ── */}
       <footer className="glass-dark py-5 text-center border-t-2 border-white/10">
         <div className="flex items-center justify-center gap-2 text-white/80 text-sm font-semibold">
           <span>🎟</span>

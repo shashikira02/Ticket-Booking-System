@@ -1,4 +1,3 @@
-// eslint-disable-next-line react-refresh/only-export-components
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import axios from 'axios';
@@ -40,7 +39,6 @@ export const ShowsProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useShows = () => {
   const ctx = useContext(ShowsContext);
   if (!ctx) throw new Error('useShows must be used within ShowsProvider');

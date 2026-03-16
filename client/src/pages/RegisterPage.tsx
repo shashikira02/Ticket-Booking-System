@@ -29,7 +29,6 @@ export default function RegisterPage() {
     <div className="min-h-screen flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md mx-auto">
 
-        {/* Logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 rounded-3xl text-4xl mb-5 shadow-2xl shadow-indigo-500/50 animate-float">
             🎟
@@ -38,7 +37,6 @@ export default function RegisterPage() {
           <p className="text-white/70 text-base font-medium">Join TicketApp and start booking</p>
         </div>
 
-        {/* Card */}
         <div className="glass rounded-3xl border-4 border-white/60 shadow-2xl shadow-indigo-900/40 p-8 sm:p-10">
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
 
@@ -58,7 +56,6 @@ export default function RegisterPage() {
                 className="input-field" required minLength={6} />
             </div>
 
-            {/* Role selector */}
             <div className="flex flex-col gap-3">
               <label className="text-xs font-black text-slate-500 uppercase tracking-widest">I want to</label>
               <div className="grid grid-cols-2 gap-3">

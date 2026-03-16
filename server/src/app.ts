@@ -11,7 +11,7 @@ import bookingRoutes from './routes/bookingRoutes';
 
 const app = express();
 
-app.use(helmet({ contentSecurityPolicy: false })); // CSP disabled for Swagger UI to load
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({
   origin: (process.env.ALLOWED_ORIGIN ?? 'http://localhost:5173').split(',').map(o => o.trim()),
   methods: ['GET', 'POST', 'DELETE'],
@@ -20,7 +20,6 @@ app.use(cors({
 app.use(pinoHttp({ logger }));
 app.use(express.json({ limit: '10kb' }));
 
-// Swagger UI
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api/v1', authRoutes);

@@ -39,7 +39,6 @@ export default function AdminPage() {
   return (
     <Layout>
       <div className="text-center">
-        {/* Header */}
         <div className="mb-14 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-sm font-bold px-5 py-2.5 rounded-full mb-6 border-2 border-indigo-200 shadow-md">
             <span className="gradient-text">⚡ Admin Dashboard</span>
@@ -49,7 +48,6 @@ export default function AdminPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start max-w-6xl mx-auto text-left">
-          {/* Create form — 2 cols */}
           <div className="lg:col-span-2">
             <div className="bg-gradient-to-br from-white to-slate-50 rounded-3xl border-2 border-slate-200 shadow-xl p-8">
               <h2 className="text-xl font-black text-slate-900 mb-8 flex items-center gap-3">
@@ -107,7 +105,6 @@ export default function AdminPage() {
             </div>
           </div>
 
-          {/* Shows list — 3 cols */}
           <div className="lg:col-span-3">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-black text-slate-900">

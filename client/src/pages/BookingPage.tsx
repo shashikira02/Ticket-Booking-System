@@ -116,7 +116,6 @@ export default function BookingPage() {
   return (
     <Layout>
       <div className="max-w-5xl mx-auto text-center">
-        {/* Back */}
         <div className="text-left mb-10">
           <button onClick={() => navigate('/')}
             className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 transition-all font-bold hover:gap-3 group">
@@ -124,7 +123,6 @@ export default function BookingPage() {
           </button>
         </div>
 
-        {/* Show info */}
         <div className="mb-10 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-6 pb-8 border-b-2 border-slate-200">
           <div className="flex-1">
             <h1 className="text-3xl sm:text-4xl font-black gradient-text">{show?.name ?? `Show #${showId}`}</h1>
@@ -153,7 +151,6 @@ export default function BookingPage() {
           </div>
         </div>
 
-        {/* Result banner */}
         {result && (
           <div className={`mb-8 flex items-center justify-center gap-4 rounded-2xl border-2 px-6 py-5 text-sm sm:text-base font-bold shadow-xl ${
             result.status === 'CONFIRMED'
@@ -169,15 +166,12 @@ export default function BookingPage() {
           </div>
         )}
 
-        {/* Seat map card */}
         <div className="bg-gradient-to-br from-white to-slate-50 rounded-2xl sm:rounded-3xl border-2 border-slate-200 shadow-2xl overflow-hidden">
-          {/* Screen */}
           <div className="bg-gradient-to-b from-indigo-50 via-purple-50 to-white px-8 pt-10 pb-6 text-center border-b-2 border-slate-200">
             <div className="mx-auto w-3/4 h-3 bg-gradient-to-r from-transparent via-indigo-400 to-transparent rounded-full mb-3 shadow-lg" />
             <p className="text-xs font-black text-slate-500 uppercase tracking-widest">Screen</p>
           </div>
 
-          {/* Legend */}
           <div className="flex items-center justify-center gap-8 px-8 py-5 border-b-2 border-slate-200 text-sm font-bold text-slate-600 bg-slate-50">
             <span className="flex items-center gap-2.5">
               <span className="w-6 h-6 rounded-lg bg-slate-200 border-2 border-slate-300 inline-block shadow-sm" /> Booked
@@ -190,7 +184,6 @@ export default function BookingPage() {
             </span>
           </div>
 
-          {/* Seats */}
           <div className="p-10">
             <div className="grid gap-3 max-w-3xl mx-auto" style={{ gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))` }}>
               {allSeats.map((num) => {
@@ -215,7 +208,6 @@ export default function BookingPage() {
             </div>
           </div>
 
-          {/* Footer / booking bar */}
           <div className="border-t-2 border-slate-200 bg-gradient-to-r from-slate-50 to-slate-100 px-4 sm:px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-5">
             <div className="text-sm sm:text-base text-slate-700 font-medium">
               {selected.length === 0 ? (

@@ -27,7 +27,6 @@ export async function createShow(req: Request, res: Response, next: NextFunction
       );
       const showId = showResult.rows[0]?.id;
 
-      // Bulk insert all seats using parameterized query
       const params: (number)[] = [];
       const placeholders = Array.from({ length: totalSeats }, (_, i) => {
         params.push(showId!, i + 1);

@@ -33,7 +33,7 @@ async function expireStaleBookings(): Promise<void> {
     await client.query(`UPDATE bookings SET status = 'failed' WHERE id = ANY($1)`, [ids]);
 
     await client.query('COMMIT');
-    logger.info({ expiredCount: ids.length }, `Expired stale bookings`);
+    logger.info({ expiredCount: ids.length }, 'Expired stale bookings');
   } catch (err) {
     await client.query('ROLLBACK');
     logger.error(err, 'Error in booking expiry job');

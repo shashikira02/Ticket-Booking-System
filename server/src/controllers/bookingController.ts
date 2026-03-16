@@ -38,7 +38,6 @@ export async function getShowSeats(req: Request, res: Response, next: NextFuncti
       return;
     }
 
-    // Single query — DB does the grouping, no JS filtering needed
     const result = await pool.query<{ available: number[]; booked: number[] }>(
       `SELECT
          array_agg(seat_number ORDER BY seat_number) FILTER (WHERE is_booked = FALSE) AS available,
@@ -100,7 +99,6 @@ export async function bookSeats(req: Request, res: Response, next: NextFunction)
     );
     const bookingId = insert.rows[0]?.id;
 
-    // Bulk insert booking_seats using parameterized query
     const bsParams: number[] = [];
     const bsPlaceholders = seatIds.map((seatId) => {
       bsParams.push(bookingId!, seatId);

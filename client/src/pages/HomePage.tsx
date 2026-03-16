@@ -18,7 +18,6 @@ export default function HomePage() {
 
   return (
     <Layout>
-      {/* ── Hero ── */}
       <div className="text-center mb-12 mx-auto max-w-3xl">
         <span className="inline-block bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 text-sm font-black px-5 py-2 rounded-full border-2 border-indigo-200 mb-5 shadow-sm">
           🎭 Live Shows
@@ -32,21 +31,18 @@ export default function HomePage() {
         </p>
       </div>
 
-      {/* ── Loading ── */}
       {loading && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[1, 2, 3].map(i => <SkeletonCard key={i} />)}
         </div>
       )}
 
-      {/* ── Error ── */}
       {error && (
         <div className="flex items-center justify-center gap-3 max-w-xl mx-auto bg-red-50 border-4 border-red-300 rounded-2xl px-6 py-5 text-red-800 font-bold shadow-lg">
           <span className="text-2xl">⚠️</span> {error}
         </div>
       )}
 
-      {/* ── Empty ── */}
       {!loading && !error && shows.length === 0 && (
         <div className="text-center py-24 mx-auto max-w-md">
           <div className="text-8xl mb-5 animate-float">🎭</div>
@@ -55,7 +51,6 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* ── Shows Grid ── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {shows.map((show) => {
           const avail = Number(show.available_seats);
